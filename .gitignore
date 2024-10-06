@@ -41,3 +41,23 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Generated files
+*.gm.dart
+*.g.dart
+*.gr.dart
+*.graphql.dart
+*.freezed.dart
+*.lock
+
+devtools_options.yaml
+
+# Unity files
+# You should export its from Unity 2022.3.21f1
+/android/unityLibrary
+/ios/UnityLibrary
+/ios/UnityLibrary_BurstDebugInformation_DoNotShip
+
+/android/signing/
+/ios.zip
+/android.zip

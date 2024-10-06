@@ -83,7 +83,7 @@ dart_code_metrics:
 linter:
   rules:
     use_key_in_widget_constructors: false
-    always_use_package_imports: true
+    always_use_package_imports: false
     avoid_dynamic_calls: false
     avoid_print: true
     avoid_relative_lib_imports: false

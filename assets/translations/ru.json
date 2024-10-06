@@ -1,0 +1,23 @@
+{
+  "commonErrors": {
+    "noInternet": "Отсутствует интернет соединение.",
+    "userWithThisEmailAlreadyExists": "Пользователь с такой почтой уже существует.",
+    "serverUnavailable": "Сервер недоступен",
+    "unknown": "Неизвестная ошибка",
+    "clientError": "Ошибка на клиенте",
+    "unAuthorized": "Не достаточно прав доступа",
+    "notFound": "Ресурс не найден",
+    "resourceAlreadyExists": "Ресурс уже существует и не может быть заменен",
+    "invalidInput": "Неверный ввод"
+  },
+  "auth": {
+    "signIn": "Вход",
+    "signUp": "Регистрация",
+    "passwordLengthCondition": "Длина пароля: от 8 до 16 символов",
+    "passwordContentCondition": "Пароль может содержать латинские буквы и цифры",
+    "invalidEmailWarning": "Введите корректный адрес",
+    "userNotFound": "Пользователя с введенными данными не существует",
+    "userAlreadyExists": "Пользователь с введенными данными уже существует",
+    "userSuccessfullyCreated": "Пользователь успешно создан"
+  }
+}
