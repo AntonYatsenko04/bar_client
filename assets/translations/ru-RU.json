@@ -8,7 +8,14 @@
     "unAuthorized": "Не достаточно прав доступа",
     "notFound": "Ресурс не найден",
     "resourceAlreadyExists": "Ресурс уже существует и не может быть заменен",
-    "invalidInput": "Неверный ввод"
+    "invalidInput": "Неверный ввод",
+    "fieldCantBeEmpty": "Поле не может быть пустым"
+  },
+  "commonTitles": {
+    "acceptAction": "Подтвердить действие",
+    "changeDate": "Сменить дату",
+    "changeTime": "Сменить время"
+
   },
   "auth": {
     "signIn": "Вход",
@@ -19,5 +26,10 @@
     "userNotFound": "Пользователя с введенными данными не существует",
     "userAlreadyExists": "Пользователь с введенными данными уже существует",
     "userSuccessfullyCreated": "Пользователь успешно создан"
+  },
+  "broadcast": {
+    "broadcastList": "Список транcляций",
+    "createBroadcast": "Создать трансляцию",
+    "editBroadcast": "Изменить трансляцию"
   }
 }

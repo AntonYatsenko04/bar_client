@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bar_client/core/src/localization/generated/locale_keys.g.dart';
 import 'package:bar_client/core/src/logger/logger.dart';
 import 'package:bar_client/core/src/validators/email_validator.dart';
@@ -34,6 +36,7 @@ class SignInCubit extends Cubit<SignInState> {
       if (passwordError == null && emailError == null) {
         emit(SignInState.empty());
         await _authService.signIn(signInModel: SignInModel(email: email, password: password));
+        unawaited(_appRouter.replace(const BroadcastListRoute()));
       } else {
         emit(
           state.copyWith(

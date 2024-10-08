@@ -1,7 +1,8 @@
 import 'package:bar_client/core/src/constants/config_constants.dart';
 import 'package:bar_client/core/src/localization/generated/locale_keys.g.dart';
+import 'package:bar_client/core/src/validators/validator.dart';
 
-class PasswordValidator {
+class PasswordValidator implements Validator {
   const PasswordValidator();
 
   String? check(String? value) {

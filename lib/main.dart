@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return EasyLocalization(
-      supportedLocales: const <Locale>[Locale('ru')],
+      supportedLocales: const <Locale>[Locale('ru', 'RU')],
       path: 'assets/translations',
-      fallbackLocale: const Locale('ru'),
+      fallbackLocale: const Locale('ru', 'RU'),
       child: Builder(
         builder: (BuildContext context) {
           return MaterialApp.router(

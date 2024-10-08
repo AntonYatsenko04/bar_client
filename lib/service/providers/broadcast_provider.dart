@@ -6,20 +6,20 @@ import 'package:retrofit/http.dart';
 
 part 'broadcast_provider.g.dart';
 
-@RestApi(baseUrl: ApiConstants.broadcast)
+@RestApi()
 abstract class BroadcastProvider {
   factory BroadcastProvider(Dio dio, {String baseUrl}) = _BroadcastProvider;
 
-  @GET('')
+  @GET(ApiConstants.broadcast)
   Future<List<BroadcastModelResponse>> getBroadCasts();
 
-  @POST('')
+  @POST(ApiConstants.broadcast)
   Future<void> createBroadcast(@Body() BroadcastModelRequest request);
 
-  @DELETE('/{id}')
+  @DELETE('${ApiConstants.broadcast}/{id}')
   Future<void> deleteBroadcast(@Path() int id);
 
-  @PATCH('/{id}')
+  @PATCH('${ApiConstants.broadcast}/{id}')
   Future<void> updateBroadcast(
     @Body() BroadcastModelRequest request,
     @Path() int id,

@@ -8,13 +8,13 @@ class BroadcastModelResponse {
   final String name;
   @JsonKey(name: 'datetime')
   final DateTime dateTime;
-  final String? imageUrl;
+  final String description;
 
   const BroadcastModelResponse({
     required this.id,
     required this.name,
     required this.dateTime,
-    required this.imageUrl,
+    required this.description,
   });
 
   factory BroadcastModelResponse.fromJson(Map<String, dynamic> json) =>

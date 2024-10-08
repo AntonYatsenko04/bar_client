@@ -2,12 +2,12 @@ import 'package:bar_client/core_ui/src/theme/app_images.dart';
 import 'package:flutter/material.dart';
 
 class AppScaffold extends StatelessWidget {
-  final Widget child;
   final String title;
+  final Widget child;
 
   const AppScaffold({
-    required this.child,
     required this.title,
+    required this.child,
     super.key,
   });
 
