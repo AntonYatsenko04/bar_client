@@ -18,19 +18,17 @@ class AppScaffold extends StatelessWidget {
         appBar: AppBar(
           title: Text(title),
         ),
-        body: Center(
-          child: Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(AppImages.background),
-                fit: BoxFit.cover,
-                opacity: 0.3,
-              ),
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(AppImages.background),
+              fit: BoxFit.cover,
+              opacity: 0.3,
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(80.0),
-              child: child,
-            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(80.0),
+            child: child,
           ),
         ),
       ),

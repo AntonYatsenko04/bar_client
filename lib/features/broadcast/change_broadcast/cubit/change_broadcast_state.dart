@@ -12,8 +12,7 @@ class ChangeBroadcastState {
     this.descriptionError,
     this.commonError,
   });
-  String get dateTimeString =>
-      "${DateFormat.MMMMEEEEd('ru').format(dateTime)} ${DateFormat.jms('ru').format(dateTime)}";
+  String get dateTimeString => DateFormatter.getDateTimeString(dateTime);
 
   ChangeBroadcastState copyWith({
     DateTime? dateTime,

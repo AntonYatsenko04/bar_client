@@ -1,4 +1,5 @@
 import 'package:bar_client/core/src/di/app_di.dart';
+import 'package:bar_client/core/src/localization/app_localization.dart';
 import 'package:bar_client/core_ui/src/theme/app_theme.dart';
 import 'package:bar_client/navigation/app_router/app_router.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -22,9 +23,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return EasyLocalization(
-      supportedLocales: const <Locale>[Locale('ru', 'RU')],
-      path: 'assets/translations',
-      fallbackLocale: const Locale('ru', 'RU'),
+      supportedLocales: AppLocalization.supportedLocales,
+      path: AppLocalization.localePath,
+      fallbackLocale: AppLocalization.ruLocale,
       child: Builder(
         builder: (BuildContext context) {
           return MaterialApp.router(

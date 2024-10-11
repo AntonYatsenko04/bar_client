@@ -21,4 +21,9 @@ class BroadcastModelResponse {
       _$BroadcastModelResponseFromJson(json);
 
   Map<String, dynamic> toJson() => _$BroadcastModelResponseToJson(this);
+
+  @override
+  String toString() {
+    return 'BroadcastModelResponse{id: $id, name: $name, dateTime: $dateTime, description: $description}';
+  }
 }

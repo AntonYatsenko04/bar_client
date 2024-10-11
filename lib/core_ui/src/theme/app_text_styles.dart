@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppTextStyles {
+sealed class AppTextStyles {
   static const String _fontName = 'Roboto Flex';
 
   static const TextStyle s8W400Regular = TextStyle(

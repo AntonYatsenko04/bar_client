@@ -19,8 +19,11 @@ class ChangeBroadcastScreen extends StatelessWidget {
       create: (_) => ChangeBroadcastCubit(
         appRouter: appLocator(),
         broadcastService: appLocator(),
+        broadcast: broadcastModelResponse,
       ),
-      child: const ChangeBroadcastForm(),
+      child: ChangeBroadcastForm(
+        broadcast: broadcastModelResponse,
+      ),
     );
   }
 }

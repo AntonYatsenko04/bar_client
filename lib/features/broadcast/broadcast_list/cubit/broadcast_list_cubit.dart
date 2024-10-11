@@ -1,5 +1,4 @@
 import 'package:bar_client/navigation/app_router/app_router.dart';
-import 'package:bar_client/navigation/app_router/app_router.gr.dart';
 import 'package:bar_client/service/exceptions/app_exception.dart';
 import 'package:bar_client/service/models/broadcast/broadcast_model_response.dart';
 import 'package:bar_client/service/services/broadcast_service.dart';
@@ -36,9 +35,5 @@ class BroadcastListCubit extends Cubit<BroadcastListState> {
     } on AppException catch (e) {
       emit(ErrorState(errorMessage: e.errorMessageKey));
     }
-  }
-
-  Future<void> createBroadcast() async {
-    await _appRouter.navigate(ChangeBroadcastRoute());
   }
 }
