@@ -29,7 +29,6 @@ class ChangeBroadcastCubit extends Cubit<ChangeBroadcastState> {
     final ChangeBroadcastState currentState = state;
 
     try {
-      throw AppException(type: AppExceptionType.noInternet);
       if (broadcast == null) {
         final BroadcastModelRequest broadcast = BroadcastModelRequest(
           name: name,

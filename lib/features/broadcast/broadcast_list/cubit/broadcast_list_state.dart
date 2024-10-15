@@ -5,8 +5,38 @@ sealed class BroadcastListState {}
 
 final class DataState implements BroadcastListState {
   final List<BroadcastModelResponse> broadcasts;
+  final String? searchString;
 
-  DataState({required this.broadcasts});
+  List<BroadcastModelResponse> get filteredBroadcasts {
+    if (searchString == null) {
+      return broadcasts;
+    }
+
+    return broadcasts
+        .where((BroadcastModelResponse e) =>
+            e.name.trim().toLowerCase().contains(searchString!.trim().toLowerCase()))
+        .toList();
+  }
+
+  DataState({
+    required this.broadcasts,
+    this.searchString,
+  });
+
+  DataState copyWith({
+    required String? searchString,
+    List<BroadcastModelResponse>? broadcasts,
+  }) {
+    return DataState(
+      broadcasts: broadcasts ?? this.broadcasts,
+      searchString: searchString,
+    );
+  }
+
+  @override
+  String toString() {
+    return 'DataState{broadcasts: $broadcasts, searchString: $searchString}';
+  }
 }
 
 final class ErrorState implements BroadcastListState {

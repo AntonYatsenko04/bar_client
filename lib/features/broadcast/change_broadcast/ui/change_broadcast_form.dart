@@ -1,9 +1,9 @@
 import 'package:bar_client/core/src/localization/generated/locale_keys.g.dart';
 import 'package:bar_client/core/src/validators/empty_field_validator.dart';
-import 'package:bar_client/core_ui/src/theme/app_text_styles.dart';
 import 'package:bar_client/core_ui/src/widgets/app_scaffold.dart';
+import 'package:bar_client/core_ui/src/widgets/error_view.dart';
 import 'package:bar_client/core_ui/src/widgets/height_spacer.dart';
-import 'package:bar_client/core_ui/src/widgets/text_fields/app_text_field.dart';
+import 'package:bar_client/core_ui/src/widgets/text_fields/app_text_field_with_label.dart';
 import 'package:bar_client/features/broadcast/change_broadcast/cubit/change_broadcast_cubit.dart';
 import 'package:bar_client/service/models/broadcast/broadcast_model_response.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -50,18 +50,15 @@ class _ChangeBroadcastFormState extends State<ChangeBroadcastForm> {
                   builder: (_) {
                     final String? text = state.commonError;
                     if (text != null) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          text.tr(),
-                          style: AppTextStyles.s18W500H24Regular,
-                        ),
+                      return ErrorView(
+                        message: text.tr(),
                       );
                     }
                     return SizedBox();
                   },
                 ),
-                AppTextField(
+                AppTextFieldWithLabel(
+                  label: LocaleKeys.broadcast_title.tr(),
                   validator: const EmptyFieldValidator().check,
                   controller: nameController,
                 ),
@@ -93,7 +90,8 @@ class _ChangeBroadcastFormState extends State<ChangeBroadcastForm> {
                   child: Text(LocaleKeys.commonTitles_changeTime.tr()),
                 ),
                 const HeightSpacer(),
-                AppTextField(
+                AppTextFieldWithLabel(
+                  label: LocaleKeys.broadcast_description.tr(),
                   validator: const EmptyFieldValidator().check,
                   controller: descriptionController,
                 ),

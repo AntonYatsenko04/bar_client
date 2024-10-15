@@ -7,9 +7,7 @@ import 'package:bar_client/service/exceptions/app_exception.dart';
 import 'package:bar_client/service/models/auth/sign_in_model.dart';
 import 'package:bar_client/service/services/auth_service.dart';
 import 'package:bloc/bloc.dart';
-import 'package:copy_with_extension/copy_with_extension.dart';
 
-part 'sign_up_cubit.g.dart';
 part 'sign_up_state.dart';
 
 class SignUpCubit extends Cubit<SignUpState> {
@@ -21,7 +19,7 @@ class SignUpCubit extends Cubit<SignUpState> {
     required AppRouter appRouter,
   })  : _authService = authService,
         _appRouter = appRouter,
-        super(const SignUpState(showLoading: false));
+        super(SignUpState.empty());
 
   Future<void> signUp({
     required String email,
@@ -33,7 +31,7 @@ class SignUpCubit extends Cubit<SignUpState> {
       emit(SignUpState.empty());
       if (passwordError == null && emailError == null) {
         await _authService.signUp(signInModel: SignInModel(email: email, password: password));
-        emit(state.copyWith(signUpMessage: LocaleKeys.auth_userSuccessfullyCreated));
+        emit(state.copyWith(signUpError: LocaleKeys.auth_userSuccessfullyCreated));
       } else {
         emit(
           state.copyWith(
@@ -50,11 +48,15 @@ class SignUpCubit extends Cubit<SignUpState> {
         errorMessage = e.errorMessageKey;
       }
 
-      emit(state.copyWith(signUpMessage: errorMessage));
+      emit(state.copyWith(signUpError: errorMessage));
     }
   }
 
   void goToSignIn() {
     _appRouter.navigate(const SignInRoute());
+  }
+
+  void changePasswordVisibility() {
+    emit(state.copyWith(passwordVisible: !state.passwordVisible));
   }
 }

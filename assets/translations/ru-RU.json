@@ -1,6 +1,6 @@
 {
   "commonErrors": {
-    "noInternet": "Отсутствует интернет соединение.",
+    "noInternet": "Отсутствует подключение к серверу.",
     "userWithThisEmailAlreadyExists": "Пользователь с такой почтой уже существует.",
     "serverUnavailable": "Сервер недоступен",
     "unknown": "Неизвестная ошибка",
@@ -19,17 +19,23 @@
   },
   "auth": {
     "signIn": "Вход",
+    "signInAction": "Войти",
     "signUp": "Регистрация",
+    "signUpAction": "Зарегистрироваться",
     "passwordLengthCondition": "Длина пароля: от 8 до 16 символов",
     "passwordContentCondition": "Пароль может содержать латинские буквы и цифры",
     "invalidEmailWarning": "Введите корректный адрес",
     "userNotFound": "Пользователя с введенными данными не существует",
     "userAlreadyExists": "Пользователь с введенными данными уже существует",
-    "userSuccessfullyCreated": "Пользователь успешно создан"
+    "userSuccessfullyCreated": "Пользователь успешно создан",
+    "email": "Адрес электронной почты",
+    "password": "Пароль"
   },
   "broadcast": {
     "broadcastList": "Список транcляций",
     "createBroadcast": "Создать трансляцию",
-    "editBroadcast": "Изменить трансляцию"
+    "editBroadcast": "Изменить трансляцию",
+    "title": "Название",
+    "description": "Описание"
   }
 }

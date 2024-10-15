@@ -10,9 +10,7 @@ import 'package:bar_client/service/exceptions/app_exception.dart';
 import 'package:bar_client/service/models/auth/sign_in_model.dart';
 import 'package:bar_client/service/services/auth_service.dart';
 import 'package:bloc/bloc.dart';
-import 'package:copy_with_extension/copy_with_extension.dart';
 
-part 'sign_in_cubit.g.dart';
 part 'sign_in_state.dart';
 
 class SignInCubit extends Cubit<SignInState> {
@@ -24,7 +22,7 @@ class SignInCubit extends Cubit<SignInState> {
     required AppRouter appRouter,
   })  : _authService = authService,
         _appRouter = appRouter,
-        super(const SignInState(showLoading: false));
+        super(SignInState.empty());
 
   Future<void> signIn({
     required String email,
@@ -60,5 +58,9 @@ class SignInCubit extends Cubit<SignInState> {
 
   Future<void> goToSignUp() {
     return _appRouter.navigate(const SignUpRoute());
+  }
+
+  void changePasswordVisibility() {
+    emit(state.copyWith(passwordVisible: !state.passwordVisible));
   }
 }

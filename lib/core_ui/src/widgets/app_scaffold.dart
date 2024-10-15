@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 class AppScaffold extends StatelessWidget {
   final String title;
   final Widget child;
+  final List<Widget>? actions;
 
   const AppScaffold({
     required this.title,
     required this.child,
+    this.actions,
     super.key,
   });
 
@@ -17,6 +19,7 @@ class AppScaffold extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(title),
+          actions: actions,
         ),
         body: Container(
           decoration: const BoxDecoration(

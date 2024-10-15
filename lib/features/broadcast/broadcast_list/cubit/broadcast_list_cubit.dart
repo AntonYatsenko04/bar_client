@@ -36,4 +36,17 @@ class BroadcastListCubit extends Cubit<BroadcastListState> {
       emit(ErrorState(errorMessage: e.errorMessageKey));
     }
   }
+
+  void setSearchString(String? searchString) {
+    final BroadcastListState currentState = state;
+    if (currentState is! DataState) {
+      return;
+    }
+
+    emit(
+      currentState.copyWith(
+        searchString: searchString,
+      ),
+    );
+  }
 }
