@@ -26,7 +26,7 @@
     "passwordContentCondition": "Пароль может содержать латинские буквы и цифры",
     "invalidEmailWarning": "Введите корректный адрес",
     "userNotFound": "Пользователя с введенными данными не существует",
-    "userAlreadyExists": "Пользователь с введенными данными уже существует",
+    "userWithThisEmailAlreadyExists": "Пользователь с такой почтой уже существует",
     "userSuccessfullyCreated": "Пользователь успешно создан",
     "email": "Адрес электронной почты",
     "password": "Пароль"

@@ -43,7 +43,7 @@ class SignUpCubit extends Cubit<SignUpState> {
     } on AppException catch (e) {
       final String errorMessage;
       if (e.type == AppExceptionType.resourceAlreadyExists) {
-        errorMessage = LocaleKeys.auth_userAlreadyExists;
+        errorMessage = LocaleKeys.auth_userWithThisEmailAlreadyExists;
       } else {
         errorMessage = e.errorMessageKey;
       }

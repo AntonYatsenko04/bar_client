@@ -39,7 +39,10 @@ class _ChangeBroadcastFormState extends State<ChangeBroadcastForm> {
     final ChangeBroadcastCubit cubit = context.read<ChangeBroadcastCubit>();
 
     return AppScaffold(
-      title: LocaleKeys.broadcast_createBroadcast.tr(),
+      title: (cubit.broadcast == null
+              ? LocaleKeys.broadcast_createBroadcast
+              : LocaleKeys.broadcast_editBroadcast)
+          .tr(),
       child: Form(
         key: _formKey,
         child: BlocBuilder<ChangeBroadcastCubit, ChangeBroadcastState>(

@@ -94,7 +94,7 @@ class _BroadcastListFormState extends State<BroadcastListForm> {
                 },
               );
             case ErrorState():
-              return ErrorView(message: state.errorMessage.tr());
+              return Center(child: ErrorView(message: state.errorMessage.tr()));
             case LoadingState():
               return const Center(
                 child: CircularProgressIndicator(),
