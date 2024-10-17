@@ -1,0 +1,16 @@
+import 'package:bar_client/features/menu/list_menu/cubit/list_menu_cubit.dart';
+import 'package:bar_client/features/menu/list_menu/ui/list_menu_from.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class ListMenuScreen extends StatelessWidget {
+  const ListMenuScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider<ListMenuCubit>(
+      create: (_) => ListMenuCubit(),
+      child: const ListMenuFrom(),
+    );
+  }
+}

@@ -20,9 +20,5 @@ class AppRouter extends RootStackRouter {
           path: '/broadcast_list',
           page: BroadcastListRoute.page,
         ),
-        AutoRoute(
-          path: '/change_broadcast',
-          page: ChangeBroadcastRoute.page,
-        ),
       ];
 }
