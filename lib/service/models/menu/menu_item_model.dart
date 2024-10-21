@@ -9,6 +9,7 @@ class MenuItemModel with _$MenuItemModel {
     required String name,
     required String description,
     required int price,
+    int? id,
   }) = _MenuItemModel;
 
   factory MenuItemModel.fromJson(Map<String, dynamic> json) => _$MenuItemModelFromJson(json);

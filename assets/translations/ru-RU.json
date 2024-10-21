@@ -37,5 +37,8 @@
     "editBroadcast": "Изменить трансляцию",
     "title": "Название",
     "description": "Описание"
+  },
+  "menu": {
+    "menu": "Меню"
   }
 }

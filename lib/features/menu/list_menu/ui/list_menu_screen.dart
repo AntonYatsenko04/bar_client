@@ -1,3 +1,4 @@
+import 'package:bar_client/core/src/di/app_di.dart';
 import 'package:bar_client/features/menu/list_menu/cubit/list_menu_cubit.dart';
 import 'package:bar_client/features/menu/list_menu/ui/list_menu_from.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,9 @@ class ListMenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<ListMenuCubit>(
-      create: (_) => ListMenuCubit(),
+      create: (_) => ListMenuCubit(
+        menuService: appLocator(),
+      ),
       child: const ListMenuFrom(),
     );
   }
