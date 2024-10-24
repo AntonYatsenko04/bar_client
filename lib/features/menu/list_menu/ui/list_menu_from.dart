@@ -3,7 +3,7 @@ import 'package:bar_client/core_ui/src/widgets/app_scaffold.dart';
 import 'package:bar_client/core_ui/src/widgets/error_view.dart';
 import 'package:bar_client/features/menu/list_menu/cubit/list_menu_cubit.dart';
 import 'package:bar_client/features/menu/list_menu/ui/wigets/menu_card.dart';
-import 'package:bar_client/service/models/menu/menu_item_model.dart';
+import 'package:bar_client/service/models/menu/menu_item_response.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,7 +35,7 @@ class ListMenuFrom extends StatelessWidget {
                   ),
                   itemCount: currentState.menuItems.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final MenuItemModel item = currentState.menuItems[index];
+                    final MenuItemResponse item = currentState.menuItems[index];
 
                     return MenuCard(menuItemModel: item);
                   },

@@ -17,8 +17,18 @@ class AppRouter extends RootStackRouter {
           page: SignUpRoute.page,
         ),
         AutoRoute(
-          path: '/broadcast_list',
-          page: BroadcastListRoute.page,
+          path: '/drawer_wrapper',
+          page: DrawerWrapperRoute.page,
+          children: [
+            AutoRoute(
+              path: '',
+              page: BroadcastListRoute.page,
+            ),
+            AutoRoute(
+              path: 'list_menu',
+              page: ListMenuRoute.page,
+            ),
+          ],
         ),
       ];
 }

@@ -17,6 +17,6 @@ class ErrorState with _$ErrorState implements ListMenuState {
 @freezed
 class DataState with _$DataState implements ListMenuState {
   const factory DataState({
-    required List<MenuItemModel> menuItems,
+    required List<MenuItemResponse> menuItems,
   }) = _DataState;
 }

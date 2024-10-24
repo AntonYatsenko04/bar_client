@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:bar_client/core/src/logger/logger.dart';
 import 'package:bar_client/service/exceptions/app_exception.dart';
-import 'package:bar_client/service/models/menu/menu_item_model.dart';
+import 'package:bar_client/service/models/menu/menu_item_response.dart';
 import 'package:bar_client/service/services/menu_service.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -15,12 +15,14 @@ class ListMenuCubit extends Cubit<ListMenuState> {
 
   ListMenuCubit({required MenuService menuService})
       : _menuService = menuService,
-        super(const LoadingState());
+        super(const LoadingState()) {
+    getMenuItems();
+  }
 
   Future<void> getMenuItems() async {
     try {
       emit(const LoadingState());
-      final List<MenuItemModel> menuItems = await _menuService.getAllMenuItems();
+      final List<MenuItemResponse> menuItems = await _menuService.getAllMenuItems();
       emit(DataState(menuItems: menuItems));
     } on AppException catch (e, st) {
       AppLogger().error(error: e, stackTrace: st);

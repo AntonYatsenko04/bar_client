@@ -1,4 +1,5 @@
-import 'package:bar_client/service/models/menu/menu_item_model.dart';
+import 'package:bar_client/service/models/menu/menu_item_request.dart';
+import 'package:bar_client/service/models/menu/menu_item_response.dart';
 import 'package:bar_client/service/providers/menu_provider.dart';
 import 'package:bar_client/service/safe_request/safe_request.dart';
 
@@ -9,15 +10,15 @@ class MenuService {
     required MenuProvider menuProvider,
   }) : _menuProvider = menuProvider;
 
-  Future<List<MenuItemModel>> getAllMenuItems() async {
-    return safeRequest<List<MenuItemModel>>(_menuProvider.getMenuItems);
+  Future<List<MenuItemResponse>> getAllMenuItems() async {
+    return safeRequest<List<MenuItemResponse>>(_menuProvider.getMenuItems);
   }
 
-  Future<void> createMenuItem({required MenuItemModel menuItem}) async {
+  Future<void> createMenuItem({required MenuItemRequest menuItem}) async {
     return safeRequest(() => _menuProvider.createMenuItem(menuItem));
   }
 
-  Future<void> updateMenuItem({required MenuItemModel menuItem}) async {
+  Future<void> updateMenuItem({required MenuItemRequest menuItem}) async {
     return safeRequest(() => _menuProvider.updateMenuItem(menuItem));
   }
 
