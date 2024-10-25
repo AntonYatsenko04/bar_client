@@ -8,8 +8,6 @@ part 'order_item_request.g.dart';
 class OrderItemRequest with _$OrderItemRequest {
   const factory OrderItemRequest({
     required List<int> menuItemIds,
-    required int tableNumber,
-    required int waiterId,
     required OrderStatus status,
     int? cookId,
   }) = _OrderItemRequest;

@@ -18,8 +18,11 @@ class MenuService {
     return safeRequest(() => _menuProvider.createMenuItem(menuItem));
   }
 
-  Future<void> updateMenuItem({required MenuItemRequest menuItem}) async {
-    return safeRequest(() => _menuProvider.updateMenuItem(menuItem));
+  Future<void> updateMenuItem({
+    required MenuItemRequest menuItem,
+    required int id,
+  }) async {
+    return safeRequest(() => _menuProvider.updateMenuItem(menuItem, id));
   }
 
   Future<void> deleteMenuItem({required int id}) async {

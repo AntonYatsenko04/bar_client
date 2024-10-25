@@ -2,7 +2,7 @@ import 'package:bar_client/core/src/localization/generated/locale_keys.g.dart';
 import 'package:bar_client/core_ui/src/widgets/app_scaffold.dart';
 import 'package:bar_client/core_ui/src/widgets/error_view.dart';
 import 'package:bar_client/features/menu/list_menu/cubit/list_menu_cubit.dart';
-import 'package:bar_client/features/menu/list_menu/ui/wigets/menu_card.dart';
+import 'package:bar_client/features/menu/list_menu/ui/widget/menu_card.dart';
 import 'package:bar_client/service/models/menu/menu_item_response.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';

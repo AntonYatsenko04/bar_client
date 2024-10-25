@@ -9,9 +9,6 @@ part 'order_item_response.g.dart';
 class OrderItemResponse with _$OrderItemResponse {
   const factory OrderItemResponse({
     required List<MenuItemResponse> menuItems,
-    required int tableNumber,
-    required int price,
-    required int waiterId,
     required OrderStatus status,
     int? cookId,
   }) = _OrderItemResponse;

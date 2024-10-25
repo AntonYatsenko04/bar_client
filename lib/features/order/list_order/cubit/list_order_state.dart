@@ -4,12 +4,16 @@ sealed class ListOrderState {}
 
 @freezed
 class DataState with _$DataState implements ListOrderState {
-  const factory DataState() = _DataState;
+  const factory DataState({
+    required List<OrderResponse> orders,
+  }) = _DataState;
 }
 
 @freezed
 class ErrorState with _$ErrorState implements ListOrderState {
-  const factory ErrorState() = _ErrorState;
+  const factory ErrorState({
+    required String errorMessage,
+  }) = _ErrorState;
 }
 
 @freezed

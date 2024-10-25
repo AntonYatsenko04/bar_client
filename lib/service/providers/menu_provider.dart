@@ -17,12 +17,13 @@ abstract class MenuProvider {
   @POST(ApiConstants.menu)
   Future<void> createMenuItem(@Body() MenuItemRequest request);
 
-  @DELETE(ApiConstants.menu)
-  Future<void> deleteMenuItem(@Body() int id);
+  @DELETE('${ApiConstants.menu}/{id}')
+  Future<void> deleteMenuItem(@Path() int id);
 
-  @PATCH(ApiConstants.menu)
+  @PATCH('${ApiConstants.menu}/{id}')
   Future<void> updateMenuItem(
     @Body() MenuItemRequest request,
+    @Path() int id,
   );
 }
 
@@ -78,7 +79,7 @@ class MockMenuProvider implements MenuProvider {
   }
 
   @override
-  Future<void> updateMenuItem(MenuItemRequest request) async {
+  Future<void> updateMenuItem(MenuItemRequest request, int id) async {
     return;
   }
 }
