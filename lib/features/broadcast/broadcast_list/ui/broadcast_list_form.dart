@@ -54,8 +54,8 @@ class _BroadcastListFormState extends State<BroadcastListForm> {
           switch (state) {
             case DataState():
               return GridView.builder(
-                gridDelegate:
-                    const SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 300),
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 300),
                 itemCount: state.filteredBroadcasts.length + 1,
                 itemBuilder: (BuildContext context, int index) {
                   if (index == state.filteredBroadcasts.length) {
@@ -72,7 +72,8 @@ class _BroadcastListFormState extends State<BroadcastListForm> {
                       child: Text(LocaleKeys.broadcast_createBroadcast.tr()),
                     );
                   }
-                  final BroadcastModelResponse broadcast = state.filteredBroadcasts[index];
+                  final BroadcastModelResponse broadcast =
+                      state.filteredBroadcasts[index];
 
                   return BroadcastCard(
                     name: broadcast.name,

@@ -25,42 +25,50 @@ class BroadcastCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
-        child: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(name, style: AppTextStyles.s18W500H24Regular),
-                  const HeightSpacer(),
-                  Text(
-                    DateFormatter.getDateTimeString(dateTime),
-                    style: AppTextStyles.s14W400H18Regular,
-                  ),
-                  const HeightSpacer(),
-                  Text(description),
-                  const HeightSpacer(),
-                  Row(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      IconButton(
-                        onPressed: deleteCallback,
-                        icon: const Icon(
-                          Icons.delete_forever,
-                        ),
+                      Text(
+                        name,
+                        style: AppTextStyles.s18W500H24Regular,
                       ),
-                      const WidthSpacer(),
-                      IconButton(
-                        onPressed: editCallback,
-                        icon: const Icon(
-                          Icons.edit,
-                        ),
+                      const HeightSpacer(),
+                      Text(
+                        DateFormatter.getDateTimeString(dateTime),
+                        style: AppTextStyles.s14W400H18Regular,
                       ),
+                      const HeightSpacer(),
+                      Text(description),
+                      const HeightSpacer(),
+                      Row(
+                        children: <Widget>[
+                          IconButton(
+                            onPressed: deleteCallback,
+                            icon: const Icon(
+                              Icons.delete_forever,
+                            ),
+                          ),
+                          const WidthSpacer(),
+                          IconButton(
+                            onPressed: editCallback,
+                            icon: const Icon(
+                              Icons.edit,
+                            ),
+                          ),
+                        ],
+                      )
                     ],
-                  )
-                ],
-              ),
-            ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

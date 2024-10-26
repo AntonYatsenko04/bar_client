@@ -11,8 +11,10 @@ class BroadcastListCubit extends Cubit<BroadcastListState> {
   final BroadcastService _broadcastService;
   final AppRouter _appRouter;
 
-  BroadcastListCubit({required BroadcastService broadcastService, required AppRouter appRouter})
-      : _broadcastService = broadcastService,
+  BroadcastListCubit({
+    required BroadcastService broadcastService,
+    required AppRouter appRouter,
+  })  : _broadcastService = broadcastService,
         _appRouter = appRouter,
         super(LoadingState()) {
     getBroadcasts();
@@ -20,7 +22,8 @@ class BroadcastListCubit extends Cubit<BroadcastListState> {
 
   Future<void> getBroadcasts() async {
     try {
-      final List<BroadcastModelResponse> broadcasts = await _broadcastService.getBroadcasts();
+      final List<BroadcastModelResponse> broadcasts =
+          await _broadcastService.getBroadcasts();
 
       emit(DataState(broadcasts: broadcasts));
     } on AppException catch (e) {
@@ -48,5 +51,12 @@ class BroadcastListCubit extends Cubit<BroadcastListState> {
         searchString: searchString,
       ),
     );
+  }
+
+  Future<void> updateSearch(String? input) async {
+    final BroadcastListState currentState = state;
+    if (currentState is DataState) {
+      emit(currentState.copyWith(searchString: null));
+    }
   }
 }

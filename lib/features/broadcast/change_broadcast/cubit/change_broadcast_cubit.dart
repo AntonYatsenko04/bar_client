@@ -20,7 +20,8 @@ class ChangeBroadcastCubit extends Cubit<ChangeBroadcastState> {
     this.broadcast,
   })  : _appRouter = appRouter,
         _broadcastService = broadcastService,
-        super(ChangeBroadcastState(dateTime: broadcast?.dateTime ?? DateTime.now()));
+        super(ChangeBroadcastState(
+            dateTime: broadcast?.dateTime ?? DateTime.now()));
 
   Future<void> acceptChanges({
     required String name,
