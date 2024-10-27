@@ -1,5 +1,4 @@
 import 'package:bar_client/core/src/localization/generated/locale_keys.g.dart';
-import 'package:bar_client/core/src/logger/logger.dart';
 import 'package:bar_client/core_ui/src/widgets/app_scaffold.dart';
 import 'package:bar_client/core_ui/src/widgets/text_fields/app_text_field.dart';
 import 'package:bar_client/features/broadcast/broadcast_list/ui/broadcast_card.dart';
@@ -50,8 +49,6 @@ class _BroadcastListFormState extends State<BroadcastListForm> {
       ],
       child: BlocBuilder<BroadcastListCubit, BroadcastListState>(
         builder: (BuildContext context, BroadcastListState state) {
-          AppLogger().debug(message: 'build');
-
           switch (state) {
             case DataState():
               return GridView.builder(
@@ -74,7 +71,8 @@ class _BroadcastListFormState extends State<BroadcastListForm> {
                       child: Text(LocaleKeys.broadcast_createBroadcast.tr()),
                     );
                   }
-                  final BroadcastModelResponse broadcast = state.filteredBroadcasts[index];
+                  final BroadcastModelResponse broadcast =
+                      state.filteredBroadcasts[index];
 
                   return BroadcastCard(
                     name: broadcast.name,
