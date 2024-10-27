@@ -16,7 +16,7 @@ class OrderService {
   }
 
   Future<void> createOrder(OrderRequest order) async {
-    return safeRequest(() => _orderProvider.createMenuItem(order));
+    return safeRequest(() => _orderProvider.createOrder(order));
   }
 
   Future<void> updateOrder(

@@ -1,6 +1,7 @@
 import 'package:bar_client/core/src/localization/generated/locale_keys.g.dart';
 import 'package:bar_client/core_ui/src/widgets/app_scaffold.dart';
 import 'package:bar_client/core_ui/src/widgets/error_view.dart';
+import 'package:bar_client/features/menu/edit_menu/ui/edit_menu_screen.dart';
 import 'package:bar_client/features/menu/list_menu/cubit/list_menu_cubit.dart';
 import 'package:bar_client/features/menu/list_menu/ui/widget/menu_card.dart';
 import 'package:bar_client/service/models/menu/menu_item_response.dart';
@@ -20,24 +21,42 @@ class ListMenuFrom extends StatelessWidget {
       child: BlocBuilder<ListMenuCubit, ListMenuState>(
         builder: (BuildContext context, ListMenuState state) {
           final ListMenuState currentState = state;
+          final ListMenuCubit cubit = context.read<ListMenuCubit>();
+
           switch (currentState) {
             case LoadingState():
               return const Center(
                 child: CircularProgressIndicator(),
               );
             case ErrorState():
-              return ErrorView(message: currentState.errorMessage.tr());
+              return Center(
+                child: ErrorView(message: currentState.errorMessage.tr()),
+              );
             case DataState():
               {
                 return GridView.builder(
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: NumConstants.maxCrossAxisExtent,
+                    maxCrossAxisExtent: NumConstants.maxCrossAxisExtent + 100,
                   ),
                   itemCount: currentState.menuItems.length,
                   itemBuilder: (BuildContext context, int index) {
                     final MenuItemResponse item = currentState.menuItems[index];
 
-                    return MenuCard(menuItemModel: item);
+                    return MenuCard(
+                      menuItemModel: item,
+                      deleteCallback: () => cubit.deleteMenuItem(item.id),
+                      editCallback: () async {
+                        await showDialog(
+                          context: context,
+                          builder: (_) {
+                            return EditMenuScreen(
+                              menuItem: item,
+                            );
+                          },
+                        );
+                        await cubit.getMenuItems();
+                      },
+                    );
                   },
                 );
               }

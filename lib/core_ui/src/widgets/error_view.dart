@@ -11,13 +11,15 @@ class ErrorView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Colors.white,
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Text(
-          message,
-          style: AppTextStyles.s18W500H24Regular.copyWith(color: Colors.red),
+    return Center(
+      child: Card(
+        color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Text(
+            message,
+            style: AppTextStyles.s18W500H24Regular.copyWith(color: Colors.red),
+          ),
         ),
       ),
     );

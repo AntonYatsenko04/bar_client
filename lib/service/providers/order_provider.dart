@@ -16,13 +16,13 @@ abstract class OrderProvider {
   Future<List<OrderResponse>> getOrders();
 
   @POST(ApiConstants.order)
-  Future<void> createMenuItem(@Body() OrderRequest request);
+  Future<void> createOrder(@Body() OrderRequest request);
 
   @DELETE('${ApiConstants.order}/{id}')
-  Future<void> deleteMenuItem(@Path() int id);
+  Future<void> deleteOrder(@Path() int id);
 
   @PATCH('${ApiConstants.order}/{id}')
-  Future<void> updateMenuItem(
+  Future<void> updateOrder(
     @Body() UpdateOrderRequest request,
     @Path() int id,
   );

@@ -4,6 +4,7 @@ import 'package:bar_client/core_ui/src/theme/app_text_styles.dart';
 import 'package:bar_client/core_ui/src/theme/color/app_colors_theme.dart';
 import 'package:bar_client/core_ui/src/widgets/text_fields/text_fields.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AppTextFieldWithLabel extends StatelessWidget {
   final TextEditingController? controller;
@@ -16,6 +17,7 @@ class AppTextFieldWithLabel extends StatelessWidget {
   final String? Function(String?)? validator;
   final AutovalidateMode? autovalidateMode;
   final ValueChanged<String>? onChanged;
+  final List<TextInputFormatter>? inputFormatters;
 
   const AppTextFieldWithLabel({
     required this.label,
@@ -29,6 +31,7 @@ class AppTextFieldWithLabel extends StatelessWidget {
     this.validator,
     this.autovalidateMode,
     this.onChanged,
+    this.inputFormatters,
   });
 
   @override
@@ -55,6 +58,7 @@ class AppTextFieldWithLabel extends StatelessWidget {
           obscureText: obscureText,
           suffixIcon: suffixIcon,
           onChanged: onChanged,
+          inputFormatters: inputFormatters,
         ),
       ],
     );

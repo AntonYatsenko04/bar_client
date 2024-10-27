@@ -23,8 +23,8 @@ void initProviderDi(GetIt appLocator) {
       ),
     )
     ..registerLazySingleton<MenuProvider>(
-      () => MockMenuProvider(
-          // appLocator<Dio>(),
-          ),
+      () => MenuProvider(
+        appLocator<Dio>(),
+      ),
     );
 }

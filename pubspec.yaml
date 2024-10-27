@@ -26,6 +26,7 @@ dependencies:
   copy_with_extension: ^5.0.4
   bloc: ^8.1.4
   freezed_annotation: ^2.4.4
+  mask_text_input_formatter: ^2.9.0
 
 
 dev_dependencies:

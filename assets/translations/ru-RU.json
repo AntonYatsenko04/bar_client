@@ -9,14 +9,15 @@
     "notFound": "Ресурс не найден",
     "resourceAlreadyExists": "Ресурс уже существует и не может быть заменен",
     "invalidInput": "Неверный ввод",
-    "fieldCantBeEmpty": "Поле не может быть пустым"
+    "fieldCantBeEmpty": "Поле не может быть пустым",
+    "valueMustBeGreaterThanZero": "Значение должно быть больше нуля"
   },
   "commonTitles": {
     "acceptAction": "Подтвердить действие",
     "changeDate": "Сменить дату",
     "changeTime": "Сменить время"
-
   },
+
   "auth": {
     "signIn": "Вход",
     "signInAction": "Войти",
@@ -39,6 +40,13 @@
     "description": "Описание"
   },
   "menu": {
-    "menu": "Меню"
+    "menu": "Меню",
+    "editMenu": "Изменить единицу меню",
+    "createMenu": "Создать единицу меню",
+    "title": "Название",
+    "description": "Описание",
+    "price": "Цена",
+    "rubles": "Рубли",
+    "kopeck": "Копейки"
   }
 }
