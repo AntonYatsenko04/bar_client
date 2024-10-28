@@ -103,8 +103,8 @@ class _ChangeBroadcastFormState extends State<ChangeBroadcastForm> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       cubit.acceptChanges(
-                        name: nameController.text,
-                        description: descriptionController.text,
+                        name: nameController.text.trim(),
+                        description: descriptionController.text.trim(),
                       );
                     }
                   },

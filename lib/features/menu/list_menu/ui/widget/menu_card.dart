@@ -39,7 +39,10 @@ class MenuCard extends StatelessWidget {
                   ),
                   const HeightSpacer(),
                   Center(
-                    child: Text(NumberFormatters.formatCurrency(menuItemModel.price)),
+                    child: Text(
+                      NumberFormatters.formatCurrency(menuItemModel.price),
+                      maxLines: 3,
+                    ),
                   ),
                   const HeightSpacer(),
                   Row(

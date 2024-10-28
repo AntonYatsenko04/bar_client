@@ -1,6 +1,7 @@
 import 'package:bar_client/core/src/localization/generated/locale_keys.g.dart';
 import 'package:bar_client/core/src/validators/empty_field_validator.dart';
 import 'package:bar_client/core/src/validators/int_number_greater_than_zero_validator.dart';
+import 'package:bar_client/core/src/validators/validator.dart';
 import 'package:bar_client/core_ui/src/widgets/app_scaffold.dart';
 import 'package:bar_client/core_ui/src/widgets/error_view.dart';
 import 'package:bar_client/core_ui/src/widgets/height_spacer.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/src/validators/validator_union.dart';
 import '../../../../core_ui/src/widgets/text_fields/app_text_field_with_label.dart';
 import '../cubit/edit_menu_cubit.dart';
 
@@ -76,7 +78,12 @@ class _EditMenuFormState extends State<EditMenuForm> {
                 const HeightSpacer(),
                 AppTextFieldWithLabel(
                   label: LocaleKeys.menu_price.tr(),
-                  validator: const IntNumberGreaterThanZeroValidator().check,
+                  validator: ValidatorUnion(
+                    validators: <Validator>[
+                      const EmptyFieldValidator(),
+                      const IntNumberGreaterThanZeroValidator(),
+                    ],
+                  ).check,
                   inputFormatters: <TextInputFormatter>[
                     FilteringTextInputFormatter.digitsOnly,
                     LengthLimitingTextInputFormatter(6),
@@ -88,8 +95,8 @@ class _EditMenuFormState extends State<EditMenuForm> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       cubit.acceptChanges(
-                        name: nameController.text,
-                        description: descriptionController.text,
+                        name: nameController.text.trim(),
+                        description: descriptionController.text.trim(),
                         priceText: priceController.text,
                       );
                     }

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bar_client/core/src/localization/generated/locale_keys.g.dart';
 import 'package:bar_client/core_ui/src/widgets/app_scaffold.dart';
 import 'package:bar_client/core_ui/src/widgets/error_view.dart';
@@ -16,53 +18,68 @@ class ListMenuFrom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppScaffold(
-      title: LocaleKeys.menu_menu.tr(),
-      child: BlocBuilder<ListMenuCubit, ListMenuState>(
-        builder: (BuildContext context, ListMenuState state) {
-          final ListMenuState currentState = state;
-          final ListMenuCubit cubit = context.read<ListMenuCubit>();
-
-          switch (currentState) {
-            case LoadingState():
-              return const Center(
-                child: CircularProgressIndicator(),
+    return BlocBuilder<ListMenuCubit, ListMenuState>(
+      builder: (BuildContext context, ListMenuState state) {
+        final ListMenuState currentState = state;
+        final ListMenuCubit cubit = context.read<ListMenuCubit>();
+        return AppScaffold(
+          title: LocaleKeys.menu_menu.tr(),
+          leading: IconButton(
+            onPressed: () async {
+              await showDialog(
+                context: context,
+                builder: (_) {
+                  return const EditMenuScreen();
+                },
               );
-            case ErrorState():
-              return Center(
-                child: ErrorView(message: currentState.errorMessage.tr()),
-              );
-            case DataState():
-              {
-                return GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: NumConstants.maxCrossAxisExtent + 100,
-                  ),
-                  itemCount: currentState.menuItems.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    final MenuItemResponse item = currentState.menuItems[index];
+              unawaited(cubit.getMenuItems());
+            },
+            icon: const Icon(Icons.add),
+          ),
+          child: Builder(
+            builder: (_) {
+              switch (currentState) {
+                case LoadingState():
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                case ErrorState():
+                  return Center(
+                    child: ErrorView(message: currentState.errorMessage.tr()),
+                  );
+                case DataState():
+                  {
+                    return GridView.builder(
+                      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent: NumConstants.maxCrossAxisExtent + 100,
+                      ),
+                      itemCount: currentState.menuItems.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        final MenuItemResponse item = currentState.menuItems[index];
 
-                    return MenuCard(
-                      menuItemModel: item,
-                      deleteCallback: () => cubit.deleteMenuItem(item.id),
-                      editCallback: () async {
-                        await showDialog(
-                          context: context,
-                          builder: (_) {
-                            return EditMenuScreen(
-                              menuItem: item,
+                        return MenuCard(
+                          menuItemModel: item,
+                          deleteCallback: () => cubit.deleteMenuItem(item.id),
+                          editCallback: () async {
+                            await showDialog(
+                              context: context,
+                              builder: (_) {
+                                return EditMenuScreen(
+                                  menuItem: item,
+                                );
+                              },
                             );
+                            await cubit.getMenuItems();
                           },
                         );
-                        await cubit.getMenuItems();
                       },
                     );
-                  },
-                );
+                  }
               }
-          }
-        },
-      ),
+            },
+          ),
+        );
+      },
     );
   }
 }
