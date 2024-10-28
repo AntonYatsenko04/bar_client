@@ -37,7 +37,8 @@
     "createBroadcast": "Создать трансляцию",
     "editBroadcast": "Изменить трансляцию",
     "title": "Название",
-    "description": "Описание"
+    "description": "Описание",
+    "allowedDateTimeRange": "Разрешенный диапазон дат:"
   },
   "menu": {
     "menu": "Меню",
