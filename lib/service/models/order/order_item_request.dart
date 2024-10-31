@@ -8,10 +8,6 @@ part 'order_item_request.g.dart';
 class OrderItemRequest with _$OrderItemRequest {
   const factory OrderItemRequest({
     required List<int> menuItemIds,
-    @JsonKey(
-      toJson: _statusToJson,
-      fromJson: _statusFromJson,
-    )
     required OrderStatus status,
     int? cookId,
   }) = _OrderItemRequest;

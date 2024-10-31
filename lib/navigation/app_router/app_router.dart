@@ -6,7 +6,7 @@ import 'package:bar_client/navigation/app_router/app_router.gr.dart';
 )
 class AppRouter extends RootStackRouter {
   @override
-  List<AutoRoute> get routes => [
+  List<AutoRoute> get routes => <AutoRoute>[
         AutoRoute(
           initial: true,
           path: '/sign_in',
@@ -19,7 +19,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(
           path: '/drawer_wrapper',
           page: DrawerWrapperRoute.page,
-          children: [
+          children: <AutoRoute>[
             AutoRoute(
               path: '',
               page: BroadcastListRoute.page,
@@ -28,7 +28,15 @@ class AppRouter extends RootStackRouter {
               path: 'list_menu',
               page: ListMenuRoute.page,
             ),
+            AutoRoute(
+              path: 'list_order',
+              page: ListOrderRoute.page,
+            ),
           ],
+        ),
+        AutoRoute(
+          path: '/add_order_item',
+          page: AddOrderItemRoute.page,
         ),
       ];
 }

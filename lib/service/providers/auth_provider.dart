@@ -1,6 +1,7 @@
 import 'package:bar_client/core/src/constants/api_constants.dart';
 import 'package:bar_client/service/models/auth/sign_in_model.dart';
 import 'package:bar_client/service/models/auth/token_model.dart';
+import 'package:bar_client/service/models/auth/user_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -15,4 +16,7 @@ abstract class AuthProvider {
 
   @POST(ApiConstants.signUp)
   Future<void> signUp(@Body() SignInModel model);
+
+  @POST(ApiConstants.userInfo)
+  Future<UserModel> getUserInfo(@Body() TokenModel token);
 }

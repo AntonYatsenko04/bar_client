@@ -14,6 +14,7 @@ class DrawerWrapperScreen extends StatelessWidget {
       routes: const <PageRouteInfo>[
         BroadcastListRoute(),
         ListMenuRoute(),
+        ListOrderRoute(),
       ],
       bottomNavigationBuilder: (_, TabsRouter tabsRouter) {
         return BottomNavigationBar(
@@ -21,11 +22,16 @@ class DrawerWrapperScreen extends StatelessWidget {
           onTap: tabsRouter.setActiveIndex,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-                label: LocaleKeys.broadcast_broadcastList.tr(),
-                icon: const Icon(Icons.broadcast_on_home_sharp)),
+              label: LocaleKeys.broadcast_broadcastList.tr(),
+              icon: const Icon(Icons.broadcast_on_home_sharp),
+            ),
             BottomNavigationBarItem(
               label: LocaleKeys.menu_menu.tr(),
               icon: const Icon(Icons.menu_book),
+            ),
+            BottomNavigationBarItem(
+              label: LocaleKeys.order_orders.tr(),
+              icon: const Icon(Icons.fact_check),
             ),
           ],
         );
