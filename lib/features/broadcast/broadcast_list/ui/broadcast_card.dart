@@ -26,7 +26,7 @@ class BroadcastCard extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Card(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(20.0),
           child: Center(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -35,19 +35,19 @@ class BroadcastCard extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(
-                        name,
-                        style: AppTextStyles.s18W500H24Regular,
-                      ),
+                      Text(name, style: AppTextStyles.s18W500H24Regular),
                       const HeightSpacer(),
                       Text(
                         DateFormatter.getDateTimeString(dateTime),
                         style: AppTextStyles.s14W400H18Regular,
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
                       ),
                       const HeightSpacer(),
                       Text(description),
                       const HeightSpacer(),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           IconButton(
                             onPressed: deleteCallback,

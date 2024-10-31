@@ -22,8 +22,7 @@ class BroadcastListCubit extends Cubit<BroadcastListState> {
 
   Future<void> getBroadcasts() async {
     try {
-      final List<BroadcastModelResponse> broadcasts =
-          await _broadcastService.getBroadcasts();
+      final List<BroadcastModelResponse> broadcasts = await _broadcastService.getBroadcasts();
 
       emit(DataState(broadcasts: broadcasts));
     } on AppException catch (e) {
@@ -33,6 +32,7 @@ class BroadcastListCubit extends Cubit<BroadcastListState> {
 
   Future<void> deleteBroadcast(int id) async {
     try {
+      emit(LoadingState());
       await _broadcastService.deleteBroadcast(id);
       await getBroadcasts();
     } on AppException catch (e) {

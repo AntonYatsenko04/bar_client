@@ -34,7 +34,7 @@ class SignInCubit extends Cubit<SignInState> {
       if (passwordError == null && emailError == null) {
         emit(SignInState.empty());
         await _authService.signIn(signInModel: SignInModel(email: email, password: password));
-        unawaited(_appRouter.replace(const BroadcastListRoute()));
+        unawaited(_appRouter.replace(const DrawerWrapperRoute()));
       } else {
         emit(
           state.copyWith(

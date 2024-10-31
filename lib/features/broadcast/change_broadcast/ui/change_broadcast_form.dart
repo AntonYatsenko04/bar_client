@@ -10,6 +10,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core_ui/src/utils/date_formatter.dart';
+
 class ChangeBroadcastForm extends StatefulWidget {
   final BroadcastModelResponse? broadcast;
 
@@ -68,6 +70,11 @@ class _ChangeBroadcastFormState extends State<ChangeBroadcastForm> {
                 const HeightSpacer(),
                 Text(state.dateTimeString),
                 const HeightSpacer(),
+                Text(LocaleKeys.broadcast_allowedDateTimeRange.tr()),
+                Text(
+                  '${DateFormatter.getDateString(DateTime.now())} - ${DateFormatter.getDateString(DateTime(2100))}',
+                ),
+                const HeightSpacer(),
                 ElevatedButton(
                   onPressed: () async {
                     final DateTime? dateTime = await showDatePicker(
@@ -103,8 +110,8 @@ class _ChangeBroadcastFormState extends State<ChangeBroadcastForm> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       cubit.acceptChanges(
-                        name: nameController.text,
-                        description: descriptionController.text,
+                        name: nameController.text.trim(),
+                        description: descriptionController.text.trim(),
                       );
                     }
                   },

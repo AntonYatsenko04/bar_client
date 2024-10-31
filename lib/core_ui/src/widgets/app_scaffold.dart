@@ -5,11 +5,15 @@ class AppScaffold extends StatelessWidget {
   final String title;
   final Widget child;
   final List<Widget>? actions;
+  final Widget? leading;
+  final Widget? floatingActionButton;
 
   const AppScaffold({
     required this.title,
     required this.child,
     this.actions,
+    this.leading,
+    this.floatingActionButton,
     super.key,
   });
 
@@ -20,6 +24,7 @@ class AppScaffold extends StatelessWidget {
         appBar: AppBar(
           title: Text(title),
           actions: actions,
+          leading: leading,
         ),
         body: Container(
           decoration: const BoxDecoration(
@@ -34,6 +39,7 @@ class AppScaffold extends StatelessWidget {
             child: child,
           ),
         ),
+        floatingActionButton: floatingActionButton,
       ),
     );
   }

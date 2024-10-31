@@ -7,7 +7,8 @@ class EmptyFieldValidator implements Validator {
 
   @override
   String? check(String? value) {
-    if (value == null || value.isEmpty) {
+    final String? trimmedValue = value?.trim();
+    if (trimmedValue == null || trimmedValue.isEmpty) {
       return LocaleKeys.commonErrors_fieldCantBeEmpty.tr();
     }
 
